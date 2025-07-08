@@ -4,7 +4,6 @@ CREATE TABLE t1
   c2 integer NOT NULL,
   c3 integer NOT NULL,
   c4 integer NOT NULL,
-  c5 integer NOT NULL,
 
   CONSTRAINT pk PRIMARY KEY (c1)
 );
