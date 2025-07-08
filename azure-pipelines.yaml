@@ -12,3 +12,32 @@ pool:
 steps:
 - script: printenv
   displayName: Print Env variables
+- script: curl -sSf https://atlasgo.sh | sh
+  displayName: Install Atlas
+- script: atlas version
+  displayName: atlas version
+- script: atlas login --token $(ATLAS_TOKEN)
+  displayName: Atlas Login
+
+- task: AtlasAction@1
+  inputs:
+    action: 'migrate lint'
+    dir_name: 'testing'
+    config: 'file://atlas.hcl'
+    env: 'pg'
+    githubConnection: 'peter-parker-inc'
+    
+- task: AtlasAction@1
+  inputs:
+    action: 'migrate diff'
+    config: 'file://atlas.hcl'
+    env: 'pg'
+    githubConnection: 'peter-parker-inc'
+
+- task: AtlasAction@1
+  inputs:
+    action: 'migrate push'
+    dir_name: 'testing'
+    latest: true
+    env: 'pg'
+    githubConnection: 'peter-parker-inc (1)'
