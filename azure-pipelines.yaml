@@ -25,14 +25,14 @@ steps:
     dir_name: 'testing'
     config: 'file://atlas.hcl'
     env: 'pg'
-    githubConnection: 'peter-parker-inc'
+    githubConnection: 'luantranminh'
     
 - task: AtlasAction@1
   inputs:
     action: 'migrate diff'
     config: 'file://atlas.hcl'
     env: 'pg'
-    githubConnection: 'peter-parker-inc'
+    githubConnection: 'luantranminh'
 
 - task: AtlasAction@1
   inputs:
@@ -40,4 +40,4 @@ steps:
     dir_name: 'testing'
     latest: true
     env: 'pg'
-    githubConnection: 'peter-parker-inc (1)'
+    githubConnection: 'luantranminh'
