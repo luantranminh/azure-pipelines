@@ -12,7 +12,7 @@ env {
   migration {
     dir = "file://migrations"
     repo {
-      name = "testing"
+      name = "testing2"
     }
   }
 }
